@@ -1,4 +1,4 @@
-export interface IHomepageReducer {
+export interface ITestReducer {
     testArr: ITestData[];
 }
 

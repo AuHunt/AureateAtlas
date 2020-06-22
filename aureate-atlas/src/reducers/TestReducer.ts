@@ -1,14 +1,11 @@
-import { IHomepageReducer } from '../types/stateTypes';
+import { ITestReducer } from '../types/stateTypes';
 import { TTestActionTypes } from 'types/actionTypes';
 
-const homepageDefaultReducer: IHomepageReducer = {
+const testDefaultReducer: ITestReducer = {
     testArr: []
 };
 
-const homepageReducer = (
-    state: IHomepageReducer = homepageDefaultReducer,
-    action: TTestActionTypes
-): IHomepageReducer => {
+const testReducer = (state: ITestReducer = testDefaultReducer, action: TTestActionTypes): ITestReducer => {
     switch (action.type) {
         case 'SET_TEST_ARR':
             return {
@@ -44,4 +41,4 @@ const homepageReducer = (
     }
 };
 
-export { homepageReducer };
+export { testReducer };

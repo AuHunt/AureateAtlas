@@ -1,7 +1,7 @@
 // import { connect } from 'react-redux';
-// import { modTest } from 'actions/homepageActions';
-export {}
-console.log("test");
+// import { modTest } from 'actions/testActions';
+export {};
+console.log('test');
 
 // const mapStateToProps = state => {
 //     return {
@@ -16,5 +16,5 @@ console.log("test");
 //       }
 //     }
 //   }
-  
+
 //   export default connect(mapStateToProps, mapDispatchToProps)(App);

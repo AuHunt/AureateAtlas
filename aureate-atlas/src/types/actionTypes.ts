@@ -25,10 +25,6 @@ export interface IAddTestAction {
     testData: ITestData;
 }
 
-export type TTestActionTypes =
-    | ISetTetsArrAction
-    | IEditTestAction
-    | IRemoveTestAction
-    | IAddTestAction;
+export type TTestActionTypes = ISetTetsArrAction | IEditTestAction | IRemoveTestAction | IAddTestAction;
 
 export type TAppActions = TTestActionTypes;
