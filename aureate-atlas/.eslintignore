@@ -1,0 +1,6 @@
+src/assets/*
+src/stylings/*
+src/serviceWorker.ts
+
+*.css
+*.scss

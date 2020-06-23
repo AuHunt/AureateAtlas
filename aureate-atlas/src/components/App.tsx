@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './stylings/App.css';
+import React from 'react';
+import './stylings/App.scss';
 import { store } from 'configureStore';
 import { Provider } from 'react-redux';
 import AppRouter from 'router';

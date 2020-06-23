@@ -8,8 +8,7 @@ import { TAppActions } from 'types/actionTypes';
 import { bindActionCreators } from 'redux';
 
 interface ITestProps {
-    id?: string;
-    color?: string;
+    propTest?: string;
 }
 
 interface ITestState {
@@ -26,13 +25,13 @@ export class Test extends React.Component<Props, ITestState> {
         this.props.startRemoveTest(id);
     };
     render() {
-        const { testArr } = this.props;
+        const testArr = this.props.testArr;
         return (
             <div>
                 <h1>Test Page</h1>
                 <div>
                     {testArr.map((testData: ITestData) => (
-                        <div>
+                        <div key={testData.id}>
                             <p>{testData.desc}</p>
                             <button onClick={() => this.onRemove(testData.id)}>Remove Test</button>
                             <button onClick={() => this.onEdit(testData)}>Edit Test</button>
@@ -46,7 +45,6 @@ export class Test extends React.Component<Props, ITestState> {
 
 interface ILinkStateProp {
     testArr: ITestData[];
-    auth_token: ITestData[];
 }
 
 interface ILinkDispatchProps {
@@ -54,15 +52,11 @@ interface ILinkDispatchProps {
     startRemoveTest: (id: string) => void;
 }
 
-const mapStateToProps = (state: TAppState, ownProps: ITestProps): ILinkStateProp => ({
-    testArr: state.testReducer.testArr,
-    auth_token: state.testReducer.testArr
+const mapStateToProps = (state: TAppState): ILinkStateProp => ({
+    testArr: state.testReducer.testArr
 });
 
-const mapDispatchToProps = (
-    dispatch: ThunkDispatch<any, any, TAppActions>,
-    ownProps: ITestProps
-): ILinkDispatchProps => ({
+const mapDispatchToProps = (dispatch: ThunkDispatch<any, any, TAppActions>): ILinkDispatchProps => ({
     startEditTest: bindActionCreators(startEditTest, dispatch),
     startRemoveTest: bindActionCreators(startRemoveTest, dispatch)
 });
