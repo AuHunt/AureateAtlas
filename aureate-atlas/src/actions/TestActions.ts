@@ -25,22 +25,19 @@ export const addTest = (testData: ITestData): TAppActions => ({
 });
 
 export function startSetTest(testArr: ITestData[]) {
-    return (dispatch: Dispatch<TAppActions>, getState: () => TAppState) => {
-        console.log(getState().testReducer.testArr);
+    return (dispatch: Dispatch<TAppActions>) => {
         dispatch(setTetsArr(testArr));
     };
 }
 
 export function startRemoveTest(id: string) {
-    return (dispatch: Dispatch<TAppActions>, getState: () => TAppState) => {
-        console.log(getState().testReducer.testArr);
+    return (dispatch: Dispatch<TAppActions>) => {
         dispatch(removeTest(id));
     };
 }
 
 export function startEditTest(testData: ITestData) {
-    return (dispatch: Dispatch<TAppActions>, getState: () => TAppState) => {
-        console.log(getState().testReducer.testArr);
+    return (dispatch: Dispatch<TAppActions>) => {
         dispatch(editTest(testData));
     };
 }

@@ -2,7 +2,13 @@ import { ITestReducer } from '../types/stateTypes';
 import { TTestActionTypes } from 'types/actionTypes';
 
 const testDefaultReducer: ITestReducer = {
-    testArr: []
+    testArr: [
+        {
+            id: 'test',
+            desc: 'testing bullshit',
+            modDate: 1
+        }
+    ]
 };
 
 const testReducer = (state: ITestReducer = testDefaultReducer, action: TTestActionTypes): ITestReducer => {
@@ -20,12 +26,13 @@ const testReducer = (state: ITestReducer = testDefaultReducer, action: TTestActi
                 testArr: testArray
             };
         case 'EDIT_TEST':
-            testArray = state.testArr;
-            for (let testData of testArray) {
+            testArray = state.testArr.map((testData) => {
                 if (testData.id === action.testData.id) {
-                    testData = action.testData;
+                    return action.testData;
+                } else {
+                    return testData;
                 }
-            }
+            });
             return {
                 ...state,
                 testArr: testArray

@@ -2,15 +2,26 @@ import React from 'react';
 import './stylings/App.scss';
 import { store } from 'configureStore';
 import { Provider } from 'react-redux';
-import AppRouter from 'router';
+import { Router, Route, Switch } from 'react-router-dom';
+import createHistory from 'history/createBrowserHistory';
+import Portfolio from './Portfolio';
 
-const App: React.FC = () => {
-    return (
-        <Provider store={store}>
-            <AppRouter />
-        </Provider>
-    );
-};
+export class AppRouter extends React.Component {
+    history = createHistory();
+    render() {
+        return (
+            <Provider store={store}>
+                <Router history={this.history}>
+                    <div>
+                        <Switch>
+                            <Route path="/" component={Portfolio} />
+                        </Switch>
+                    </div>
+                </Router>
+            </Provider>
+        );
+    }
+}
 
 // class App extends Component {
 //     render() {
@@ -30,4 +41,4 @@ const App: React.FC = () => {
 //     }
 // }
 
-export default App;
+export default AppRouter;
