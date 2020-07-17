@@ -1,22 +1,19 @@
 import React from 'react';
-import './stylings/App.scss';
 import { store } from 'configureStore';
 import { Provider } from 'react-redux';
 import { Router, Route, Switch } from 'react-router-dom';
-import createHistory from 'history/createBrowserHistory';
+import { createBrowserHistory } from 'history';
 import Portfolio from './Portfolio';
 
 export class AppRouter extends React.Component {
-    history = createHistory();
+    history = createBrowserHistory();
     render() {
         return (
             <Provider store={store}>
                 <Router history={this.history}>
-                    <div>
-                        <Switch>
-                            <Route path="/" component={Portfolio} />
-                        </Switch>
-                    </div>
+                    <Switch>
+                        <Route path="/portfolio" component={Portfolio} />
+                    </Switch>
                 </Router>
             </Provider>
         );

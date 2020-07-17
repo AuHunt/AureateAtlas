@@ -26,7 +26,8 @@ module.exports = {
         'prettier/@typescript-eslint'
     ],
     rules: {
-        'prettier/prettier': ['error']
+        'prettier/prettier': ['error'],
+        'jsx-a11y/anchor-has-content': 'off'
         // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
         // e.g. "@typescript-eslint/explicit-function-return-type": "off",
     }

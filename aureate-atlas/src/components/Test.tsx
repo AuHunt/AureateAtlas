@@ -19,19 +19,17 @@ export class Test extends React.Component<ITestProps, unknown> {
 
     render() {
         return (
-            <div className="test-root">
+            <div className="Test">
                 <h1>{this.props.testProp}</h1>
-                <div>
-                    {this.props.testArr.map((testData: ITestData) => (
-                        <div key={testData.id}>
-                            <p>{testData.desc}</p>
-                            <button onClick={() => this.onRemove(testData.id)}>Remove Test</button>
-                            <button onClick={() => this.onEdit({ id: 'test', desc: 'pootis', modDate: 199345 })}>
-                                Edit Test
-                            </button>
-                        </div>
-                    ))}
-                </div>
+                {this.props.testArr.map((testData: ITestData) => (
+                    <div key={testData.id}>
+                        <p>{testData.desc}</p>
+                        <button onClick={() => this.onRemove(testData.id)}>Remove Test</button>
+                        <button onClick={() => this.onEdit({ id: 'test', desc: 'pootis', modDate: 199345 })}>
+                            Edit Test
+                        </button>
+                    </div>
+                ))}
             </div>
         );
     }
