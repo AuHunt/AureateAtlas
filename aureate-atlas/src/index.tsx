@@ -2,9 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import AppRouter from './components/AppRouter';
 import * as serviceWorker from './serviceWorker';
-import './components/stylings/index.scss';
+import './components/assets/styles/index.scss';
 
-ReactDOM.render(<AppRouter />, document.getElementById('root'));
+ReactDOM.render(
+    <React.StrictMode>
+        <AppRouter />
+    </React.StrictMode>,
+    document.getElementById('root')
+);
 
 // // If you want your app to work offline and load faster, you can change
 // // unregister() to register() below. Note this comes with some pitfalls.
