@@ -1,0 +1,180 @@
+@font-face {
+    font-family: 'Atmos';
+    src: url('../fonts/aAtmospheric.otf');
+}
+
+@mixin Header-button {
+    font-family: 'Atmos';
+    letter-spacing: 3px;
+    background-color: inherit;
+    cursor: pointer;
+    border-radius: 25% 0%;
+    border-width: 3px;
+}
+
+$selectedHeaderBtn: #f1da36;
+
+.Portfolio-header {
+    position: fixed;
+    z-index: 1;
+    background-color: black;
+    width: 100%;
+    padding: 0.5% 1% 0.5% 1%;
+
+    .Header-container {
+        width: 100%;
+        display: flex;
+
+        .Header-section-button {
+            display: flex;
+            margin: 0% 3% 0% 0%;
+
+            .Header-option-container {
+                display: flex;
+                opacity: 0;
+                visibility: hidden;
+
+                &.Header-option-container {
+                    &-enter {
+                        &-active {
+                            opacity: 1;
+                            visibility: visible;
+                            transition: opacity 1000ms;
+                        }
+
+                        &-done {
+                            opacity: 1;
+                            visibility: visible;
+                        }
+                    }
+
+                    &-exit {
+                        opacity: 1;
+                        visibility: visible;
+
+                        &-active {
+                            opacity: 0;
+                            visibility: visible;
+                            transition: opacity 1000ms;
+                        }
+
+                        &-done {
+                            opacity: 0;
+                            visibility: hidden;
+                        }
+                    }
+                }
+
+                .Header-option-featured,
+                .Header-option-projects,
+                .Header-option-bio,
+                .Header-option-contact {
+                    @include Header-button;
+                    border: none;
+                    padding: 8px 8px 4px 8px;
+                    color: white;
+
+                    &:hover {
+                        color: $selectedHeaderBtn;
+                        transition: color 500ms;
+                    }
+
+                    &.Header-option-featured,
+                    &.Header-option-projects,
+                    &.Header-option-bio,
+                    &.Header-option-contact {
+                        &-enter {
+                            &-active {
+                                color: $selectedHeaderBtn;
+                            }
+
+                            &-done {
+                                color: $selectedHeaderBtn;
+                                transition: color 500ms;
+
+                                // &:hover {
+                                //     color: white;
+                                //     transition: color 500ms;
+                                // }
+                            }
+                        }
+
+                        &-exit {
+                            color: $selectedHeaderBtn;
+
+                            &-active {
+                                color: white;
+                            }
+
+                            &-done {
+                                color: white;
+                                transition: color 500ms;
+
+                                &:hover {
+                                    color: $selectedHeaderBtn;
+                                    transition: color 500ms;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .Header-options-toggle {
+        @include Header-button;
+        margin: 0% 3% 0% 0%;
+        border-style: solid solid none none;
+        padding: 4px 8px;
+        border-color: black;
+        color: white;
+
+        &:hover {
+            color: $selectedHeaderBtn;
+            transition: color 500ms;
+        }
+
+        &.Header-options-toggle {
+            &-enter {
+                &-active {
+                    border-color: $selectedHeaderBtn;
+                    color: $selectedHeaderBtn;
+                    transition: border-color 1000ms;
+                }
+
+                &-done {
+                    border-color: $selectedHeaderBtn;
+                    color: $selectedHeaderBtn;
+                    transition: color 500ms;
+
+                    // &:hover {
+                    //     color: white;
+                    //     transition: color 500ms;
+                    // }
+                }
+            }
+
+            &-exit {
+                border-color: $selectedHeaderBtn;
+                color: $selectedHeaderBtn;
+
+                &-active {
+                    border-color: black;
+                    color: white;
+                    transition: border-color 1000ms;
+                }
+
+                &-done {
+                    color: white;
+                    transition: color 500ms;
+
+                    &:hover {
+                        color: $selectedHeaderBtn;
+                        transition: color 500ms;
+                    }
+                }
+            }
+        }
+    }
+}

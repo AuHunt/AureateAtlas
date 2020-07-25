@@ -1,39 +1,21 @@
+@font-face {
+    font-family: 'Atmos';
+    src: url('../fonts/aAtmospheric.otf');
+}
+
 .Portfolio {
     width: inherit;
     height: inherit;
     background-color: #282c34;
     color: white;
 
-    .Portfolio-header {
-        position: relative;
-        background-color: black;
-        width: inherit;
-        padding: 0.5% 1% 0.5% 1%;
-        display: flex;
-
-        .Section-button {
-            display: inline;
-            margin: 0% 5% 0% 0%;
-            background-color: inherit;
-            border: 4px solid black;
-            padding: 4px 8px;
-            cursor: pointer;
-            color: white;
-            transition: border-color 0.25s;
-        }
-
-        .Section-button:hover {
-            border-color: white;
-            transition: border-color 0.25s;
-        }
-
-        .Section-button:target {
-            border-radius: 50%;
-            border-color: #f1da36;
-        }
+    .Background-video {
+        position: fixed;
+        min-width: 100%;
+        min-height: 100%;
     }
 
-    .Portfolio-intro {
+    .Portfolio-section-featured {
         position: relative;
         height: 100%;
         display: flex;
@@ -48,7 +30,7 @@
         }
     }
 
-    .Portfolio-content {
+    .Portfolio-section-projects {
         position: relative;
         background-color: transparent;
         padding: 20px;
@@ -58,7 +40,11 @@
         align-items: center;
     }
 
-    .Portfolio-outro {
+    .Portfolio-section-bio {
+        position: relative;
+    }
+
+    .Portfolio-section-contact {
         position: relative;
         background-color: transparent;
         padding: 20px;
@@ -67,14 +53,6 @@
         justify-content: center;
         align-items: center;
     }
-}
-
-.Background-video {
-    position: fixed;
-    padding: none;
-    float: left;
-    min-width: 100%;
-    min-height: 100%;
 }
 
 // -------------------------------------------

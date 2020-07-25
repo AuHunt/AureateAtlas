@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, MutableRefObject } from 'react';
 import './assets/styles/Portfolio.scss';
 import logo from './assets/images/logo.svg';
 import featuredImg from './assets/images/SirVeybot.jpg';
@@ -10,9 +10,8 @@ import { ThunkDispatch } from 'redux-thunk';
 import { TAppActions } from 'types/actionTypes';
 import { bindActionCreators } from 'redux';
 import ProjectList from './ProjectList';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Test from './Test';
+import Header from './Header';
 
 // Libraries so you can refer to icons by name
 // library.add(faCog);
@@ -24,70 +23,70 @@ import Test from './Test';
 // const coffeeLookup: IconLookup = { prefix: 'fas', iconName: 'coffee' };
 // const coffeeIconDefinition: IconDefinition = findIconDefinition(coffeeLookup);
 
-// Interface describing local state (which can also be passed down to child components as props)
-interface IPortfolioState {
-    testState: string;
-    backgroundVideoUrl: string;
-}
-
 type TProps = ILinkDispatchProps & ILinkStateProp;
 
-class Portfolio extends React.Component<TProps, IPortfolioState> {
-    constructor(props: TProps) {
-        super(props);
-        this.state = {
-            testState: 'I AM A TEST',
-            backgroundVideoUrl: '/videos/BlackShiftBackground.mp4'
-        };
-    }
+interface IHeaderProps {
+    featuredSectionRef: MutableRefObject<HTMLDivElement | null>;
+    projectsSectionRef: MutableRefObject<HTMLDivElement | null>;
+    bioSectionRef: MutableRefObject<HTMLDivElement | null>;
+    contactSectionRef: MutableRefObject<HTMLDivElement | null>;
+}
 
-    render() {
-        const testProps = {
-            testProp: this.state.testState,
-            testArr: this.props.testArr,
-            startEditTest: this.props.startEditTest,
-            startRemoveTest: this.props.startRemoveTest
-        };
-        return (
-            <div className="Portfolio">
-                <video className="Background-video" loop autoPlay>
-                    <source src={process.env.PUBLIC_URL + this.state.backgroundVideoUrl} type="video/mp4" />
-                    <source src={process.env.PUBLIC_URL + this.state.backgroundVideoUrl} type="video/ogg" />
-                    Your browser does not support the video tag.
-                </video>
-                <div className="Portfolio-header">
-                    <button className="Section-button Accordion-trigger">
-                        <FontAwesomeIcon icon={faBars} fixedWidth={false} size="2x" />
-                    </button>
-                    <button className="Section-button Accordion-featured">POOTIS</button>
-                    <button className="Section-button Accordion-projects">PENCER</button>
-                    <button className="Section-button Accordion-about">HERE</button>
-                </div>
-                <div className="Portfolio-intro">
-                    <img
-                        className="Featured-project-img"
-                        src={featuredImg}
-                        alt="Something must have happened with this pic. Go fuck yourself."
-                    ></img>
-                </div>
-                <div className="Portfolio-content">
-                    <ProjectList></ProjectList>
-                </div>
-                <div className="Portfolio-outro">
-                    <Test {...testProps}></Test>
-                    <div className="App">
-                        <header className="App-header">
-                            <img src={logo} className="App-logo" alt="something must have happened with the logo" />
-                            <h1 className="App-title">Welcome to React</h1>
-                            <p className="App-intro">
-                                To get started, edit <code>src/App.js</code> and save to reload.
-                            </p>
-                        </header>
-                    </div>
+function Portfolio(props: TProps) {
+    const [testState] = useState('I AM A TEST');
+    const [backgroundVideoUrl] = useState('/videos/BlackShiftBackground.mp4');
+
+    const testProps = {
+        testProp: testState,
+        testArr: props.testArr,
+        startEditTest: props.startEditTest,
+        startRemoveTest: props.startRemoveTest
+    };
+
+    const headerProps = {
+        featuredSectionRef: useRef<HTMLDivElement>(null),
+        projectsSectionRef: useRef<HTMLDivElement>(null),
+        bioSectionRef: useRef<HTMLDivElement>(null),
+        contactSectionRef: useRef<HTMLDivElement>(null)
+    };
+
+    return (
+        <div className="Portfolio">
+            <video className="Background-video" loop autoPlay>
+                <source src={process.env.PUBLIC_URL + backgroundVideoUrl} type="video/mp4" />
+                <source src={process.env.PUBLIC_URL + backgroundVideoUrl} type="video/ogg" />
+                Your browser does not support the video tag.
+            </video>
+            <div className="Portfolio-header">
+                <Header {...headerProps}></Header>
+            </div>
+            <div className="Portfolio-section-featured" ref={headerProps.featuredSectionRef}>
+                <img className="Featured-project-img" src={featuredImg} alt="Error loading featured project"></img>
+            </div>
+            <div className="Portfolio-section-projects" ref={headerProps.projectsSectionRef}>
+                <ProjectList></ProjectList>
+            </div>
+            <div className="Portfolio-section-bio" ref={headerProps.bioSectionRef}>
+                <div className="App">
+                    <header className="App-header">
+                        <img src={logo} className="App-logo" alt="Error loading logo" />
+                        <h1 className="App-title">DISCLAIMER</h1>
+                        <p className="App-intro">This part of the website is under construction.</p>
+                    </header>
                 </div>
             </div>
-        );
-    }
+            <div className="Portfolio-section-contact" ref={headerProps.contactSectionRef}>
+                <div className="App">
+                    <header className="App-header">
+                        <img src={logo} className="App-logo" alt="Error loading logo" />
+                        <h1 className="App-title">DISCLAIMER</h1>
+                        <p className="App-intro">This part of the website is under construction.</p>
+                    </header>
+                </div>
+                <Test {...testProps}></Test>
+            </div>
+        </div>
+    );
 }
 
 interface ILinkStateProp {

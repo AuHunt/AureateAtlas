@@ -9,7 +9,9 @@ interface ITestProps {
     startRemoveTest: (id: string) => void;
 }
 
-export class Test extends React.Component<ITestProps, unknown> {
+interface ITestState {}
+
+export class Test extends React.Component<ITestProps, ITestState> {
     onEdit = (testData: ITestData) => {
         this.props.startEditTest(testData);
     };
