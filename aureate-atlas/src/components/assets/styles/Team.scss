@@ -1,0 +1,57 @@
+$border-thickness: 2px;
+
+.Team-container {
+    width: inherit;
+    height: inherit;
+    background-color: #080808;
+    padding: 8vw 0;
+
+    .Team-members {
+        display: flex;
+        align-content: center;
+        flex-wrap: wrap;
+        width: 90vw;
+        margin: auto;
+
+        .Team-member-card {
+            margin: 1vw auto;
+            flex: 1 1 47%;
+            max-width: 47%;
+            display: flex;
+            flex-direction: column;
+
+            .Team-member-overview {
+                display: flex;
+                align-items: center;
+                padding: 1vw;
+                margin-bottom: 0.5vw;
+                background-color: #2d2d2d;
+
+                .Team-member-img-wrapper {
+                    width: 10vw;
+                    height: 10vw;
+                    margin-right: 2vw;
+
+                    .Team-member-img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border: $border-thickness solid gold;
+                        border-radius: 50%;
+                        box-sizing: border-box;
+                    }
+                }
+
+                .Team-member-info {
+                }
+            }
+            .Team-member-content {
+                padding: 2vw;
+                box-sizing: border-box;
+                width: 100%;
+                background-color: #202020;
+                flex: 1 1;
+            }
+        }
+    }
+}

@@ -4,10 +4,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { CSSTransition } from 'react-transition-group';
 
+// Libraries so you can refer to icons by name
+// library.add(faCog);
+// We're only adding faCoffee to the library so we can look it up.
+// And we're only doing that to demonstrate how the API types might be used.
+// This is not a realistic scenario. You wouldn't normally do things in such a round about way.
+// It's really just to demonstrate use of the types.
+// library.add(faCoffee);
+// const coffeeLookup: IconLookup = { prefix: 'fas', iconName: 'coffee' };
+// const coffeeIconDefinition: IconDefinition = findIconDefinition(coffeeLookup);
+
 interface IHeaderProps {
     featuredSectionRef: MutableRefObject<HTMLDivElement | null>;
     projectsSectionRef: MutableRefObject<HTMLDivElement | null>;
-    bioSectionRef: MutableRefObject<HTMLDivElement | null>;
+    teamSectionRef: MutableRefObject<HTMLDivElement | null>;
     contactSectionRef: MutableRefObject<HTMLDivElement | null>;
 }
 
@@ -15,10 +25,10 @@ export default function Header(props: IHeaderProps) {
     const [isHeaderOptions, setHeaderOptions] = useState(false);
     const [isFeaturedOption, setFeaturedOption] = useState(false);
     const [isProjectsOption, setProjectsOption] = useState(false);
-    const [isBioOption, setBioOption] = useState(false);
+    const [isTeamOption, setTeamOption] = useState(false);
     const [isContactOption, setContactOption] = useState(false);
 
-    const headerButtons = ['featured', 'projects', 'bio', 'contact'];
+    const headerButtons = ['featured', 'projects', 'team', 'contact'];
 
     function isOption(btn: string) {
         switch (btn) {
@@ -28,8 +38,8 @@ export default function Header(props: IHeaderProps) {
             case 'projects': {
                 return isProjectsOption;
             }
-            case 'bio': {
-                return isBioOption;
+            case 'team': {
+                return isTeamOption;
             }
             case 'contact': {
                 return isContactOption;
@@ -58,12 +68,12 @@ export default function Header(props: IHeaderProps) {
                 scrollToSection(props.projectsSectionRef);
                 break;
             }
-            case 'bio': {
-                if (!isBioOption) {
+            case 'team': {
+                if (!isTeamOption) {
                     toggleOffOtherOptions(btn);
-                    setBioOption(true);
+                    setTeamOption(true);
                 }
-                scrollToSection(props.bioSectionRef);
+                scrollToSection(props.teamSectionRef);
                 break;
             }
             case 'contact': {
@@ -81,7 +91,7 @@ export default function Header(props: IHeaderProps) {
     }
 
     function toggleOffOtherOptions(btn: string) {
-        for (let otherButton of headerButtons) {
+        for (const otherButton of headerButtons) {
             if (btn !== otherButton) {
                 switch (otherButton) {
                     case 'featured': {
@@ -92,8 +102,8 @@ export default function Header(props: IHeaderProps) {
                         setProjectsOption(false);
                         break;
                     }
-                    case 'bio': {
-                        setBioOption(false);
+                    case 'team': {
+                        setTeamOption(false);
                         break;
                     }
                     case 'contact': {

@@ -6,84 +6,36 @@
 .Portfolio {
     width: inherit;
     height: inherit;
-    background-color: #282c34;
+    background-color: #080808;
     color: white;
 
     .Background-video {
         position: fixed;
         min-width: 100%;
         min-height: 100%;
+        filter: brightness(125%);
+        z-index: 0;
     }
 
     .Portfolio-section-featured {
         position: relative;
         height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .Featured-project-img {
-            margin-bottom: 5%;
-            height: 60%;
-            border-radius: 50%;
-            border: 20px solid #f1da36;
-        }
     }
 
     .Portfolio-section-projects {
         position: relative;
-        background-color: transparent;
-        padding: 20px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
+        overflow-x: hidden;
     }
 
-    .Portfolio-section-bio {
+    .Portfolio-section-team {
         position: relative;
     }
 
     .Portfolio-section-contact {
         position: relative;
-        background-color: transparent;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-}
-
-// -------------------------------------------
-
-.ProjectList {
-    width: 80%;
-
-    .ProjectList-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        .ProjectList-item {
-            width: 100%;
-            display: flex;
-
-            .ProjectList-item-image {
-                position: relative;
-                flex: 1;
-                width: 30%;
-            }
-
-            .ProjectList-item-content {
-                box-sizing: border-box;
-                padding: 20px;
-                width: 70%;
-
-                background-color: black;
-            }
-        }
     }
 }
 

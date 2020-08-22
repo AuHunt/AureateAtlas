@@ -16,18 +16,18 @@ $selectedHeaderBtn: #f1da36;
 
 .Portfolio-header {
     position: fixed;
-    z-index: 1;
-    background-color: black;
+    z-index: 2;
+    background-color: #080808;
     width: 100%;
     padding: 0.5% 1% 0.5% 1%;
 
     .Header-container {
-        width: 100%;
+        width: inherit;
         display: flex;
 
         .Header-section-button {
             display: flex;
-            margin: 0% 3% 0% 0%;
+            margin: 0% 1.5% 0% 0%;
 
             .Header-option-container {
                 display: flex;
@@ -67,7 +67,7 @@ $selectedHeaderBtn: #f1da36;
 
                 .Header-option-featured,
                 .Header-option-projects,
-                .Header-option-bio,
+                .Header-option-team,
                 .Header-option-contact {
                     @include Header-button;
                     border: none;
@@ -81,7 +81,7 @@ $selectedHeaderBtn: #f1da36;
 
                     &.Header-option-featured,
                     &.Header-option-projects,
-                    &.Header-option-bio,
+                    &.Header-option-team,
                     &.Header-option-contact {
                         &-enter {
                             &-active {
@@ -127,7 +127,7 @@ $selectedHeaderBtn: #f1da36;
         margin: 0% 3% 0% 0%;
         border-style: solid solid none none;
         padding: 4px 8px;
-        border-color: black;
+        border-color: #080808;
         color: white;
 
         &:hover {
@@ -160,7 +160,7 @@ $selectedHeaderBtn: #f1da36;
                 color: $selectedHeaderBtn;
 
                 &-active {
-                    border-color: black;
+                    border-color: #080808;
                     color: white;
                     transition: border-color 1000ms;
                 }

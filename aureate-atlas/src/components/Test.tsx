@@ -1,7 +1,6 @@
 import React from 'react';
 import { ITestData } from 'types/stateTypes';
 
-// Interface describing props being passed by parent component (in this case, some by a combination of react states and redux states)
 interface ITestProps {
     testProp: string;
     testArr: ITestData[];
@@ -9,7 +8,9 @@ interface ITestProps {
     startRemoveTest: (id: string) => void;
 }
 
-interface ITestState {}
+interface ITestState {
+    test: any;
+}
 
 export class Test extends React.Component<ITestProps, ITestState> {
     onEdit = (testData: ITestData) => {
