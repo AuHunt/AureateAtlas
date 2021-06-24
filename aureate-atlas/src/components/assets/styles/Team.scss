@@ -3,8 +3,29 @@ $border-thickness: 2px;
 .Team-container {
     width: inherit;
     height: inherit;
-    background-color: #080808;
-    padding: 8vw 0;
+    background-color: #0d0d0d;
+
+    .container-header {
+        margin: 0 auto;
+        width: 80%;
+        color: white;
+        padding: 3vw 0;
+        display: flex;
+        border-bottom: 1px solid gold;
+
+        .container-header-content {
+            margin: auto;
+            display: flex;
+            align-items: center;
+            font-family: 'Atmos';
+            font-size: 2.5vw;
+
+            .container-header-title {
+                letter-spacing: 15px;
+                padding: 1vw 0 0 2vw;
+            }
+        }
+    }
 
     .Team-members {
         display: flex;
@@ -12,6 +33,7 @@ $border-thickness: 2px;
         flex-wrap: wrap;
         width: 90vw;
         margin: auto;
+        padding: 5vw 0;
 
         .Team-member-card {
             margin: 1vw auto;

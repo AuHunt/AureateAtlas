@@ -1,20 +1,17 @@
 import React from 'react';
 import './assets/styles/Contact.scss';
 import { FaLinkedin, FaInstagramSquare, FaGithubSquare } from 'react-icons/fa';
-import {
-    // GiExpense, GiRaven, GiRadialBalance, GiRadarSweep, GiRadarDish
-    GiRadarDish
-} from 'react-icons/gi';
+import { GiRadarDish } from 'react-icons/gi';
 
 export default function Contact() {
     return (
         <div className="Contact-container">
             <div className="Contact-card">
                 <div className="Contact-preview">
+                    <div className="Contact-info-message"></div>
                     <div className="Contact-img-wrapper">
                         <GiRadarDish size="10vw" />
                     </div>
-                    <div className="Contact-info-message">CONTACT</div>
                 </div>
                 <div className="Contact-links">
                     <a

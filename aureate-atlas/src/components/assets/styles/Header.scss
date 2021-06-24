@@ -3,16 +3,34 @@
     src: url('../fonts/aAtmospheric.otf');
 }
 
-@mixin Header-button {
-    font-family: 'Atmos';
-    letter-spacing: 3px;
-    background-color: inherit;
-    cursor: pointer;
-    border-radius: 25% 0%;
-    border-width: 3px;
-}
-
 $selectedHeaderBtn: #f1da36;
+
+.Nav-drawer-content {
+    height: 100%;
+    background-color: #080808;
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+
+    .Nav-option-button {
+        padding: 10%;
+        color: white;
+        transition: color 500ms;
+
+        &:hover {
+            color: #f1da36;
+            transition: color 250ms;
+
+            .Nav-option-button-icon {
+                color: #f1da36;
+                transition: color 250ms;
+            }
+        }
+
+        .Nav-option-button-icon {
+            color: white;
+            transition: color 500ms;
+        }
+    }
+}
 
 .Portfolio-header {
     position: fixed;
@@ -20,160 +38,32 @@ $selectedHeaderBtn: #f1da36;
     background-color: #080808;
     width: 100%;
     padding: 0.5% 1% 0.5% 1%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 
     .Header-container {
+        font-family: 'Atmos';
+        letter-spacing: 3px;
         width: inherit;
         display: flex;
+        justify-content: space-between;
 
-        .Header-section-button {
-            display: flex;
-            margin: 0% 1.5% 0% 0%;
-
-            .Header-option-container {
-                display: flex;
-                opacity: 0;
-                visibility: hidden;
-
-                &.Header-option-container {
-                    &-enter {
-                        &-active {
-                            opacity: 1;
-                            visibility: visible;
-                            transition: opacity 1000ms;
-                        }
-
-                        &-done {
-                            opacity: 1;
-                            visibility: visible;
-                        }
-                    }
-
-                    &-exit {
-                        opacity: 1;
-                        visibility: visible;
-
-                        &-active {
-                            opacity: 0;
-                            visibility: visible;
-                            transition: opacity 1000ms;
-                        }
-
-                        &-done {
-                            opacity: 0;
-                            visibility: hidden;
-                        }
-                    }
-                }
-
-                .Header-option-featured,
-                .Header-option-projects,
-                .Header-option-team,
-                .Header-option-contact {
-                    @include Header-button;
-                    border: none;
-                    padding: 8px 8px 4px 8px;
-                    color: white;
-
-                    &:hover {
-                        color: $selectedHeaderBtn;
-                        transition: color 500ms;
-                    }
-
-                    &.Header-option-featured,
-                    &.Header-option-projects,
-                    &.Header-option-team,
-                    &.Header-option-contact {
-                        &-enter {
-                            &-active {
-                                color: $selectedHeaderBtn;
-                            }
-
-                            &-done {
-                                color: $selectedHeaderBtn;
-                                transition: color 500ms;
-
-                                // &:hover {
-                                //     color: white;
-                                //     transition: color 500ms;
-                                // }
-                            }
-                        }
-
-                        &-exit {
-                            color: $selectedHeaderBtn;
-
-                            &-active {
-                                color: white;
-                            }
-
-                            &-done {
-                                color: white;
-                                transition: color 500ms;
-
-                                &:hover {
-                                    color: $selectedHeaderBtn;
-                                    transition: color 500ms;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    .Header-options-toggle {
-        @include Header-button;
-        margin: 0% 3% 0% 0%;
-        border-style: solid solid none none;
-        padding: 4px 8px;
-        border-color: #080808;
-        color: white;
-
-        &:hover {
-            color: $selectedHeaderBtn;
-            transition: color 500ms;
+        .Header-web-title {
+            margin: auto;
         }
 
-        &.Header-options-toggle {
-            &-enter {
-                &-active {
-                    border-color: $selectedHeaderBtn;
-                    color: $selectedHeaderBtn;
-                    transition: border-color 1000ms;
-                }
+        .Header-options-toggle {
+            font-family: 'Atmos';
+            letter-spacing: 3px;
+            background-color: inherit;
+            cursor: pointer;
+            border: none;
+            margin: 0% 3% 0% 3%;
+            padding: 4px 8px;
+            color: white;
 
-                &-done {
-                    border-color: $selectedHeaderBtn;
-                    color: $selectedHeaderBtn;
-                    transition: color 500ms;
-
-                    // &:hover {
-                    //     color: white;
-                    //     transition: color 500ms;
-                    // }
-                }
-            }
-
-            &-exit {
-                border-color: $selectedHeaderBtn;
+            &:hover {
                 color: $selectedHeaderBtn;
-
-                &-active {
-                    border-color: #080808;
-                    color: white;
-                    transition: border-color 1000ms;
-                }
-
-                &-done {
-                    color: white;
-                    transition: color 500ms;
-
-                    &:hover {
-                        color: $selectedHeaderBtn;
-                        transition: color 500ms;
-                    }
-                }
+                transition: color 250ms;
             }
         }
     }

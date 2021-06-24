@@ -11,9 +11,10 @@ import './assets/styles/Portfolio.scss';
 // import Test from './Test';
 import ProjectList from './ProjectList';
 import Header from './Header';
-import Featured from './Featured';
+import Intro from './Intro';
 import Team from './Team';
 import Contact from './Contact';
+import { Container } from '@material-ui/core';
 
 // type TProps = ILinkDispatchProps & ILinkStateProp;
 
@@ -36,7 +37,7 @@ export default function Portfolio() {
     };
 
     return (
-        <div className="Portfolio">
+        <Container maxWidth="lg" disableGutters={true}>
             <video className="Background-video" loop autoPlay muted>
                 <source src={process.env.PUBLIC_URL + backgroundVideoUrl} type="video/mp4" />
                 <source src={process.env.PUBLIC_URL + backgroundVideoUrl} type="video/ogg" />
@@ -46,7 +47,7 @@ export default function Portfolio() {
                 <Header {...headerProps}></Header>
             </div>
             <div className="Portfolio-section-featured" ref={headerProps.featuredSectionRef}>
-                <Featured></Featured>
+                <Intro></Intro>
             </div>
             <div className="Portfolio-section-projects" ref={headerProps.projectsSectionRef}>
                 <ProjectList></ProjectList>
@@ -65,7 +66,7 @@ export default function Portfolio() {
                 <Test {...testProps}></Test> */}
                 <Contact></Contact>
             </div>
-        </div>
+        </Container>
     );
 }
 

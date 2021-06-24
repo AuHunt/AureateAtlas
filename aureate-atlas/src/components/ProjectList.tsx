@@ -104,22 +104,15 @@ export default function ProjectList() {
         const projectList: any = [];
         for (let index = 0; index < listContent.length; index++) {
             const project = listContent[index];
-            let projectSide = 'project-item-left';
-            if (index % 2 !== 0) {
-                projectSide = 'project-item-right';
-            }
-            if (index + 1 === listContent.length) {
-                projectSide = 'project-item-center';
-            }
 
             const projectItem = (
                 <div key={'project-item-' + index} className="Project-list-item-wrapper">
                     <button
-                        className={'Project-list-item-button ' + projectSide}
+                        className={'Project-list-item-button '}
                         onClick={() => onProjectClick(project.assets, project.title, project.desc)}
                     >
                         <img
-                            className={'Project-list-item-image '}
+                            className={'Project-list-item-image'}
                             src={project.assets[0]}
                             alt="Error loading featured project"
                         ></img>
@@ -137,6 +130,11 @@ export default function ProjectList() {
 
     return (
         <div className="Project-list-container">
+            <div className="container-header">
+                <div className="container-header-content">
+                    <div className="container-header-title">Projects</div>
+                </div>
+            </div>
             {loadProjectList()}
             {loadOverlay(showOverlay)}
         </div>

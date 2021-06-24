@@ -13,7 +13,7 @@
         position: fixed;
         min-width: 100%;
         min-height: 100%;
-        filter: brightness(125%);
+        filter: brightness(100%);
         z-index: 0;
     }
 
@@ -24,10 +24,6 @@
 
     .Portfolio-section-projects {
         position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        overflow-x: hidden;
     }
 
     .Portfolio-section-team {

@@ -2,7 +2,14 @@ import React, { useState, MutableRefObject } from 'react';
 import './assets/styles/Header.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { CSSTransition } from 'react-transition-group';
+import { Divider, Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import clsx from 'clsx';
+import { createMuiTheme, makeStyles, MuiThemeProvider } from '@material-ui/core/styles';
+import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects';
+import FolderSpecialIcon from '@material-ui/icons/FolderSpecial';
+import GroupWorkIcon from '@material-ui/icons/GroupWork';
+import TrackChangesIcon from '@material-ui/icons/TrackChanges';
+import MenuIcon from '@material-ui/icons/Menu';
 
 // Libraries so you can refer to icons by name
 // library.add(faCog);
@@ -21,66 +28,50 @@ interface IHeaderProps {
     contactSectionRef: MutableRefObject<HTMLDivElement | null>;
 }
 
-export default function Header(props: IHeaderProps) {
-    const [isHeaderOptions, setHeaderOptions] = useState(false);
-    const [isFeaturedOption, setFeaturedOption] = useState(false);
-    const [isProjectsOption, setProjectsOption] = useState(false);
-    const [isTeamOption, setTeamOption] = useState(false);
-    const [isContactOption, setContactOption] = useState(false);
-
-    const headerButtons = ['featured', 'projects', 'team', 'contact'];
-
-    function isOption(btn: string) {
-        switch (btn) {
-            case 'featured': {
-                return isFeaturedOption;
-            }
-            case 'projects': {
-                return isProjectsOption;
-            }
-            case 'team': {
-                return isTeamOption;
-            }
-            case 'contact': {
-                return isContactOption;
-            }
-            default: {
-                return false;
-            }
-        }
+const useStyles = makeStyles({
+    list: {
+        width: 250
+    },
+    fullList: {
+        width: 'auto'
     }
+});
 
-    function toggleOption(btn: string) {
+export default function Header(props: IHeaderProps) {
+    const headerButtons = ['Featured', 'Projects', 'Team', 'Contact'];
+    const headerButtonIcons = [
+        <EmojiObjectsIcon fontSize="large" className="Nav-option-button-icon" />,
+        <FolderSpecialIcon fontSize="large" className="Nav-option-button-icon" />,
+        <GroupWorkIcon fontSize="large" className="Nav-option-button-icon" />,
+        <TrackChangesIcon fontSize="large" className="Nav-option-button-icon" />
+    ];
+
+    const classes = useStyles();
+    const [drawerStatus, setDrawerStatus] = useState(false);
+
+    const scrollToSection = (sectionRef: MutableRefObject<HTMLDivElement | null>) => {
+        if (sectionRef.current) {
+            window.scrollTo(0, sectionRef.current.offsetTop - 40);
+        }
+
+        setDrawerStatus(!drawerStatus);
+    };
+
+    const navToSection = (btn: string) => {
         switch (btn) {
-            case 'featured': {
-                if (!isFeaturedOption) {
-                    toggleOffOtherOptions(btn);
-                    setFeaturedOption(true);
-                }
+            case 'Featured': {
                 scrollToSection(props.featuredSectionRef);
                 break;
             }
-            case 'projects': {
-                if (!isProjectsOption) {
-                    toggleOffOtherOptions(btn);
-                    setProjectsOption(true);
-                }
+            case 'Projects': {
                 scrollToSection(props.projectsSectionRef);
                 break;
             }
-            case 'team': {
-                if (!isTeamOption) {
-                    toggleOffOtherOptions(btn);
-                    setTeamOption(true);
-                }
+            case 'Team': {
                 scrollToSection(props.teamSectionRef);
                 break;
             }
-            case 'contact': {
-                if (!isContactOption) {
-                    toggleOffOtherOptions(btn);
-                    setContactOption(true);
-                }
+            case 'Contact': {
                 scrollToSection(props.contactSectionRef);
                 break;
             }
@@ -88,83 +79,58 @@ export default function Header(props: IHeaderProps) {
                 break;
             }
         }
-    }
+    };
 
-    function toggleOffOtherOptions(btn: string) {
-        for (const otherButton of headerButtons) {
-            if (btn !== otherButton) {
-                switch (otherButton) {
-                    case 'featured': {
-                        setFeaturedOption(false);
-                        break;
-                    }
-                    case 'projects': {
-                        setProjectsOption(false);
-                        break;
-                    }
-                    case 'team': {
-                        setTeamOption(false);
-                        break;
-                    }
-                    case 'contact': {
-                        setContactOption(false);
-                        break;
-                    }
-                    default: {
-                        break;
-                    }
-                }
+    const toggleNavDrawer = () => () => {
+        setDrawerStatus(!drawerStatus);
+    };
+
+    const list = () => (
+        <div
+            className={
+                clsx(classes.list, {
+                    [classes.fullList]: false
+                }) + ' Nav-drawer-content'
             }
-        }
-    }
+            role="presentation"
+            onClick={toggleNavDrawer()}
+            onKeyDown={toggleNavDrawer()}
+        >
+            <List>
+                {headerButtons.map((btn: string, index) => (
+                    <ListItem button key={btn} onClick={() => navToSection(btn)} className={'Nav-option-button'}>
+                        <ListItemIcon>{headerButtonIcons[index]}</ListItemIcon>
+                        <ListItemText primary={btn} />
+                    </ListItem>
+                ))}
+            </List>
+            <Divider />
+        </div>
+    );
 
-    function scrollToSection(sectionRef: MutableRefObject<HTMLDivElement | null>) {
-        if (sectionRef.current) {
-            window.scrollTo(0, sectionRef.current.offsetTop - 40);
+    const THEME = createMuiTheme({
+        palette: {
+            type: 'dark'
         }
-    }
+    });
 
     return (
         <div className="Header-container">
-            <CSSTransition
-                in={isHeaderOptions}
-                timeout={{
-                    enter: 1000,
-                    exit: 1000
-                }}
-                classNames="Header-options-toggle"
+            <button className="Header-options-toggle" onClick={toggleNavDrawer()}>
+                <FontAwesomeIcon icon={faBars} fixedWidth={false} size="lg" />
+            </button>
+            <MuiThemeProvider theme={THEME}>
+                <Drawer anchor={'left'} open={drawerStatus} onClose={toggleNavDrawer()}>
+                    {list()}
+                </Drawer>
+            </MuiThemeProvider>
+            <span className="Header-web-title">{`AUREATE ATLAS`}</span>
+            <button
+                className="Header-options-toggle"
+                style={{ color: '#080808', cursor: 'default', margin: '0% 3% 0% 3%' }}
             >
-                <button className="Header-options-toggle" onClick={() => setHeaderOptions(!isHeaderOptions)}>
-                    <FontAwesomeIcon icon={faBars} fixedWidth={false} size="2x" />
-                </button>
-            </CSSTransition>
-            {headerButtons.map((btn: string) => (
-                <div key={btn + '-header-id'} className={'Header-section-button'}>
-                    <CSSTransition
-                        in={isHeaderOptions}
-                        timeout={{
-                            enter: 1000,
-                            exit: 1000
-                        }}
-                        classNames={'Header-option-container'}
-                    >
-                        <div className={'Header-option-container'}>
-                            <CSSTransition
-                                in={isOption(btn)}
-                                timeout={{
-                                    enter: 1000,
-                                    exit: 1000
-                                }}
-                                classNames={'Header-option-' + btn}
-                            >
-                                <button className={'Header-option-' + btn} onClick={() => toggleOption(btn)}>
-                                    {btn.toUpperCase()}
-                                </button>
-                            </CSSTransition>
-                        </div>
-                    </CSSTransition>
-                </div>
-            ))}
+                <FontAwesomeIcon icon={faBars} fixedWidth={false} size="4x" />
+            </button>
         </div>
     );
 }

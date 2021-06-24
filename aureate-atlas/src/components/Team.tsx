@@ -6,6 +6,11 @@ import TeamImg1 from './assets/images/Bella1.jpg';
 export default function Team() {
     return (
         <div className="Team-container">
+            <div className="container-header">
+                <div className="container-header-content">
+                    <div className="container-header-title">Team</div>
+                </div>
+            </div>
             <div className="Team-members">
                 <div className="Team-member-card">
                     <div className="Team-member-overview">
