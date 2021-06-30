@@ -1,3 +1,6 @@
+$border-thickness: 2px;
+$color-dark-1: #202020;
+
 @font-face {
     font-family: 'Atmos';
     src: url('../fonts/aAtmospheric.otf');
@@ -17,13 +20,18 @@
         z-index: 0;
     }
 
-    .Portfolio-section-featured {
+    .Portfolio-section-home {
         position: relative;
-        height: 100%;
+        min-height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
     }
 
     .Portfolio-section-projects {
         position: relative;
+        background-color: #0d0d0d;
+        display: flex;
+        justify-content: center;
     }
 
     .Portfolio-section-team {
@@ -32,6 +40,14 @@
 
     .Portfolio-section-contact {
         position: relative;
+        min-height: 60vh;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .Portfolio-navigator {
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 }
 

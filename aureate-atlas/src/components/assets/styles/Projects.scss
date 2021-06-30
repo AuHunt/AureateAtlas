@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'Atmos';
+    src: url('../fonts/aAtmospheric.otf');
+}
+
+@font-face {
+    font-family: 'MajorMonoDisplay';
+    src: url('../fonts/MajorMonoDisplay.ttf');
+}
+
+.Projects-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+
+    .Container-header {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        padding: 20px 0;
+        border-bottom: 1px solid gold;
+        margin-bottom: 30px;
+        color: white;
+        font-family: 'MajorMonoDisplay';
+        font-size: 2.75rem;
+    }
+
+    .Project-list-item {
+        background-color: #2d2d2d;
+        color: white;
+        margin: 0 20px 50px 20px;
+
+        .MuiSvgIcon-root {
+            color: white;
+            @media (pointer: coarse) {
+                color: gold;
+            }
+
+            &:hover {
+                color: gold;
+                transition: background-color 500ms;
+            }
+        }
+
+        .MuiTouchRipple-root {
+            color: gold;
+        }
+    }
+}

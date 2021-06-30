@@ -33,7 +33,7 @@ export default function ProjectList() {
             assets: [Autograder],
             isExpanded: false,
             desc:
-                'I developed the front-end for an autograder system that allowed the creation of tests for an introductory python course and automatically graded it for the student. The team was split between front-end, mid-end, and back-end. Ultimately, it is a complete system equipped for students to take tests, test creation, and dynamic grading systems.'
+                'I developed the front-end for an autograder system that allowed the creation of tests for an homeductory python course and automatically graded it for the student. The team was split between front-end, mid-end, and back-end. Ultimately, it is a complete system equipped for students to take tests, test creation, and dynamic grading systems.'
         },
         {
             title: 'Art',
@@ -56,7 +56,7 @@ export default function ProjectList() {
             assets: [Autograder],
             isExpanded: false,
             desc:
-                'I developed the front-end for an autograder system that allowed the creation of tests for an introductory python course and automatically graded it for the student. The team was split between front-end, mid-end, and back-end. Ultimately, it is a complete system equipped for students to take tests, test creation, and dynamic grading systems.'
+                'I developed the front-end for an autograder system that allowed the creation of tests for an homeductory python course and automatically graded it for the student. The team was split between front-end, mid-end, and back-end. Ultimately, it is a complete system equipped for students to take tests, test creation, and dynamic grading systems.'
         },
         {
             title: 'Art',
@@ -84,7 +84,7 @@ export default function ProjectList() {
                                 <img
                                     className="Selected-project-img"
                                     src={selectedAssets[0]}
-                                    alt="Error loading featured project"
+                                    alt="Error loading home project"
                                 ></img>
                             </a>
                         </div>
@@ -114,7 +114,7 @@ export default function ProjectList() {
                         <img
                             className={'Project-list-item-image'}
                             src={project.assets[0]}
-                            alt="Error loading featured project"
+                            alt="Error loading home project"
                         ></img>
                     </button>
                     <div className="Project-list-item-info">

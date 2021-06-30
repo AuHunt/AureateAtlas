@@ -1,0 +1,16 @@
+$color-dark-1: #202020;
+
+.Navigator-content {
+    z-index: 10;
+    position: fixed;
+    bottom: 0;
+    background-color: #161616;
+}
+
+.MuiButtonBase-root.MuiBottomNavigationAction-root.Mui-selected {
+    color: goldenrod;
+}
+
+.MuiButtonBase-root.MuiBottomNavigationAction-root {
+    color: #7c7a7a;
+}

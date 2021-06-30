@@ -1,5 +1,12 @@
 import React, { useRef, useState } from 'react';
 import './assets/styles/Portfolio.scss';
+import Home from './Home';
+// import Team from './Team';
+import Contact from './Contact';
+import Navigator from './Navigator';
+import Projects from './Projects';
+
+// *** REACT-REDUX STUFF ***
 // import logo from './assets/images/logo.svg';
 // import { connect } from 'react-redux';
 // import { startEditTest, startRemoveTest } from '../actions/TestActions';
@@ -9,18 +16,10 @@ import './assets/styles/Portfolio.scss';
 // import { TAppActions } from 'types/actionTypes';
 // import { bindActionCreators } from 'redux';
 // import Test from './Test';
-import ProjectList from './ProjectList';
-import Header from './Header';
-import Intro from './Intro';
-import Team from './Team';
-import Contact from './Contact';
-import { Container } from '@material-ui/core';
-
 // type TProps = ILinkDispatchProps & ILinkStateProp;
 
 export default function Portfolio() {
-    // const [testState] = useState('I AM A TEST');
-    const [backgroundVideoUrl] = useState('/videos/BlackShiftBackground.mp4');
+    const [backgroundVideoUrl] = useState('/videos/BlackConstellation.mp4');
 
     // const testProps = {
     //     testProp: testState,
@@ -29,47 +28,40 @@ export default function Portfolio() {
     //     startRemoveTest: props.startRemoveTest
     // };
 
-    const headerProps = {
-        featuredSectionRef: useRef<HTMLDivElement>(null),
+    const navigatorProps = {
+        homeSectionRef: useRef<HTMLDivElement>(null),
         projectsSectionRef: useRef<HTMLDivElement>(null),
         teamSectionRef: useRef<HTMLDivElement>(null),
         contactSectionRef: useRef<HTMLDivElement>(null)
     };
 
     return (
-        <Container maxWidth="lg" disableGutters={true}>
+        <div className="Portfolio">
             <video className="Background-video" loop autoPlay muted>
                 <source src={process.env.PUBLIC_URL + backgroundVideoUrl} type="video/mp4" />
                 <source src={process.env.PUBLIC_URL + backgroundVideoUrl} type="video/ogg" />
                 Your browser does not support the video tag.
             </video>
-            <div className="Portfolio-header">
-                <Header {...headerProps}></Header>
+            <div className="Portfolio-section-home" ref={navigatorProps.homeSectionRef}>
+                <Home></Home>
             </div>
-            <div className="Portfolio-section-featured" ref={headerProps.featuredSectionRef}>
-                <Intro></Intro>
+            <div className="Portfolio-section-projects" ref={navigatorProps.projectsSectionRef}>
+                <Projects></Projects>
             </div>
-            <div className="Portfolio-section-projects" ref={headerProps.projectsSectionRef}>
-                <ProjectList></ProjectList>
-            </div>
-            <div className="Portfolio-section-team" ref={headerProps.teamSectionRef}>
+            {/* <div className="Portfolio-section-team" ref={navigatorProps.teamSectionRef}>
                 <Team></Team>
-            </div>
-            <div className="Portfolio-section-contact" ref={headerProps.contactSectionRef}>
-                {/* <div className="App">
-                    <header className="App-header">
-                        <img src={logo} className="App-logo" alt="Error loading logo" />
-                        <h1 className="App-title">DISCLAIMER</h1>
-                        <p className="App-intro">This part of the website is under construction.</p>
-                    </header>
-                </div>
-                <Test {...testProps}></Test> */}
+            </div> */}
+            <div className="Portfolio-section-contact" ref={navigatorProps.contactSectionRef}>
                 <Contact></Contact>
             </div>
-        </Container>
+            <div className="Portfolio-navigator">
+                <Navigator {...navigatorProps}></Navigator>
+            </div>
+        </div>
     );
 }
 
+// *** REACT-REDUX STUFF ***
 // interface ILinkStateProp {
 //     testArr: ITestData[];
 // }
