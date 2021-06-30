@@ -2,7 +2,7 @@
     "name": "aureate-atlas",
     "version": "0.1.0",
     "private": true,
-    "homepage": "portfolio",
+    "homepage": "",
     "dependencies": {
         "@fortawesome/fontawesome": "^1.1.8",
         "@fortawesome/fontawesome-svg-core": "^1.2.29",

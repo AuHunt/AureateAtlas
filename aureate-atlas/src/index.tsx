@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppRouter from './components/AppRouter';
 import * as serviceWorker from './serviceWorker';
 import './components/assets/styles/index.scss';
+import Portfolio from 'components/Portfolio';
 
 ReactDOM.render(
     <React.Fragment>
-        <AppRouter />
+        <Portfolio />
     </React.Fragment>,
     document.getElementById('root')
 );
