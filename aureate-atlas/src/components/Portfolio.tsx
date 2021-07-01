@@ -4,6 +4,8 @@ import Home from './Home';
 import Contact from './Contact';
 import Navigator from './Navigator';
 import Projects from './Projects';
+import Team from './Team';
+import BlackConstellationFallBack from './assets/images/BlackConstellationFallBack.png';
 
 // *** REACT-REDUX STUFF ***
 // import logo from './assets/images/logo.svg';
@@ -36,14 +38,7 @@ export default function Portfolio() {
 
     return (
         <div className="Portfolio">
-            <video
-                className="Background-video"
-                loop
-                autoPlay
-                muted
-                playsInline
-                poster="/images/BlackConstellationFallBack.png"
-            >
+            <video className="Background-video" loop autoPlay muted playsInline poster={BlackConstellationFallBack}>
                 <source src={process.env.PUBLIC_URL + backgroundVideoUrl} type="video/mp4" />
                 <source src={process.env.PUBLIC_URL + backgroundVideoUrl} type="video/ogg" />
             </video>
@@ -53,9 +48,9 @@ export default function Portfolio() {
             <div className="Portfolio-section-projects" ref={navigatorProps.projectsSectionRef}>
                 <Projects></Projects>
             </div>
-            {/* <div className="Portfolio-section-team" ref={navigatorProps.teamSectionRef}>
+            <div className="Portfolio-section-team" ref={navigatorProps.teamSectionRef}>
                 <Team></Team>
-            </div> */}
+            </div>
             <div className="Portfolio-section-contact" ref={navigatorProps.contactSectionRef}>
                 <Contact></Contact>
             </div>
