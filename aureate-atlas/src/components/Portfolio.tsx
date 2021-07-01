@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import './assets/styles/Portfolio.scss';
 import Home from './Home';
-// import Team from './Team';
 import Contact from './Contact';
 import Navigator from './Navigator';
 import Projects from './Projects';
@@ -37,10 +36,16 @@ export default function Portfolio() {
 
     return (
         <div className="Portfolio">
-            <video className="Background-video" loop autoPlay muted>
+            <video
+                className="Background-video"
+                loop
+                autoPlay
+                muted
+                playsInline
+                poster="/images/BlackConstellationFallBack.png"
+            >
                 <source src={process.env.PUBLIC_URL + backgroundVideoUrl} type="video/mp4" />
                 <source src={process.env.PUBLIC_URL + backgroundVideoUrl} type="video/ogg" />
-                Your browser does not support the video tag.
             </video>
             <div className="Portfolio-section-home" ref={navigatorProps.homeSectionRef}>
                 <Home></Home>

@@ -19,7 +19,7 @@ export default function Home() {
                 Below you can find some of my programming projects and skills I've deleloped over time.
             </Typography>
             <div className="Home-profile-pic-wrapper">
-                <img className="Home-profile-pic" src={TeamImg} alt="Error loading Team project"></img>
+                <img className="Home-profile-pic" src={TeamImg} alt=""></img>
             </div>
             <div className="Home-social-links-group">
                 <a

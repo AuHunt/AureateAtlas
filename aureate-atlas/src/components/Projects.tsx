@@ -88,24 +88,30 @@ export default function ProjectList() {
             const project = listContent[index];
 
             const projectItem = (
-                <Card key={'project-item-' + index} className={classes.root + ' ' + 'Project-list-item'}>
-                    <CardActionArea>
-                        <CardMedia className={classes.media} image={project.assets[0]} title="Contemplative Reptile" />
-                    </CardActionArea>
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
-                            {project.title}
-                        </Typography>
-                        <Typography variant="body2" component="p">
-                            {project.description}
-                        </Typography>
-                    </CardContent>
-                    <CardActions>
+                <div className="Project-list-item-container">
+                    <Card key={`project-item-${index}`} className={`${classes.root} Project-list-item`}>
+                        <CardActionArea>
+                            <CardMedia
+                                className={classes.media}
+                                image={project.assets[0]}
+                                title="Contemplative Reptile"
+                            />
+                        </CardActionArea>
+                        <CardContent>
+                            <Typography gutterBottom variant="h5" component="h2">
+                                {project.title}
+                            </Typography>
+                            <Typography variant="body2" component="p">
+                                {project.description}
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                    <CardActions className="Project-list-item-actions">
                         <IconButton aria-label="Github">
                             <GitHubIcon />
                         </IconButton>
                     </CardActions>
-                </Card>
+                </div>
             );
 
             projectList.push(projectItem);

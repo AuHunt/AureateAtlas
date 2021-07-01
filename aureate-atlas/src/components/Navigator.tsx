@@ -61,7 +61,7 @@ export default function Navigator(props: INavigatorProps) {
     };
 
     return (
-        <Container maxWidth="sm" className="Navigator-content">
+        <Container maxWidth={false} className="Navigator-content">
             <BottomNavigation
                 value={value}
                 onChange={(event, newValue) => {
