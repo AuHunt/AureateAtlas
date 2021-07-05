@@ -4,8 +4,8 @@ import Home from './Home';
 import Contact from './Contact';
 import Navigator from './Navigator';
 import Projects from './Projects';
-import Team from './Team';
-import BlackConstellationFallBack from './assets/images/BlackConstellationFallBack.png';
+import backgroundVideoFallback from './assets/images/BlackPolygon.jpg';
+import Skills from './Skills';
 
 // *** REACT-REDUX STUFF ***
 // import logo from './assets/images/logo.svg';
@@ -32,13 +32,13 @@ export default function Portfolio() {
     const navigatorProps = {
         homeSectionRef: useRef<HTMLDivElement>(null),
         projectsSectionRef: useRef<HTMLDivElement>(null),
-        teamSectionRef: useRef<HTMLDivElement>(null),
+        skillsSectionRef: useRef<HTMLDivElement>(null),
         contactSectionRef: useRef<HTMLDivElement>(null)
     };
 
     return (
         <div className="Portfolio">
-            <video className="Background-video" loop autoPlay muted playsInline poster={BlackConstellationFallBack}>
+            <video className="Background-video" loop autoPlay muted playsInline poster={backgroundVideoFallback}>
                 <source src={process.env.PUBLIC_URL + backgroundVideoUrl} type="video/mp4" />
                 <source src={process.env.PUBLIC_URL + backgroundVideoUrl} type="video/ogg" />
             </video>
@@ -48,8 +48,8 @@ export default function Portfolio() {
             <div className="Portfolio-section-projects" ref={navigatorProps.projectsSectionRef}>
                 <Projects></Projects>
             </div>
-            <div className="Portfolio-section-team" ref={navigatorProps.teamSectionRef}>
-                <Team></Team>
+            <div className="Portfolio-section-skills" ref={navigatorProps.skillsSectionRef}>
+                <Skills></Skills>
             </div>
             <div className="Portfolio-section-contact" ref={navigatorProps.contactSectionRef}>
                 <Contact></Contact>

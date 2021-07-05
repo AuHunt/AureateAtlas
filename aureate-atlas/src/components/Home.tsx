@@ -7,16 +7,16 @@ import { FaLinkedin, FaInstagramSquare, FaGithubSquare } from 'react-icons/fa';
 export default function Home() {
     return (
         <div className="Home-container">
-            <Typography className="Home-title" variant="h2" component="h2">
+            <Typography className="Home-title" variant="h3" component="h3">
                 Aureate Atlas
             </Typography>
             <Typography className="Home-body-haha" variant="body2">
-                Hi! My name is Nicolas Ramirez-Diaz. I'm a remote full stack developer from the US East coast. I also
-                work on a variety of projects dealing with robotics, IoT/computer networking, game programming, and much
-                more. Looking forward to collaborating with others around the world.
+                Hi! My name is Nicolas Ramirez-Diaz. I'm a full stack developer from the US East coast. I also work on a
+                variety of projects dealing with computer networking, web development, game programming, and much more.
+                Looking forward to collaborating with others around the world.
             </Typography>
             <Typography className="Home-body-haha" variant="body2">
-                Below you can find some of my programming projects and skills I've deleloped over time.
+                Below you can find some of my programming projects and skills I've developed over the years.
             </Typography>
             <div className="Home-profile-pic-wrapper">
                 <img className="Home-profile-pic" src={TeamImg} alt=""></img>

@@ -40,7 +40,7 @@ export default function ProjectList() {
             assets: [SirVeyBot],
             isExpanded: false,
             description:
-                'For one of my internships, I was tasked with building a surveillance drone that incorporated 3D printing for easier deployment. My main role was to set up the network structure, control modules, GUI, and communications for all the modules of the drone.'
+                'For my junior internship, I worked in a multi-disciplinary team to develop a proof-of-concept drone capable of finding people in disaster zones. The aim was to make it cheap to produce and fast to deploy. I was in charge of developing the control modules, sensor systems, and wireless communication system for the drone and its array of tools.'
         },
         {
             title: 'Online Testing System',
@@ -48,30 +48,7 @@ export default function ProjectList() {
             assets: [Autograder],
             isExpanded: false,
             description:
-                'I developed the front-end for an autograder system that allowed the creation of tests for an homeductory python course and automatically graded it for the student. The team was split between front-end, mid-end, and back-end. Ultimately, it is a complete system equipped for students to take tests, test creation, and dynamic grading systems.'
-        },
-        {
-            title: 'Art',
-            music: [],
-            assets: [FallControl],
-            isExpanded: false,
-            description: "Here's a cool drawing I made back when I had passions."
-        },
-        {
-            title: '3D Printed Recon Drone',
-            music: [],
-            assets: [SirVeyBot],
-            isExpanded: false,
-            description:
-                'For one of my internships, I was tasked with building a surveillance drone that incorporated 3D printing for easier deployment. My main role was to set up the network structure, control modules, GUI, and communications for all the modules of the drone.'
-        },
-        {
-            title: 'Online Testing System',
-            music: [],
-            assets: [Autograder],
-            isExpanded: false,
-            description:
-                'I developed the front-end for an autograder system that allowed the creation of tests for an homeductory python course and automatically graded it for the student. The team was split between front-end, mid-end, and back-end. Ultimately, it is a complete system equipped for students to take tests, test creation, and dynamic grading systems.'
+                'Automatic grading system that provides students with grading, testing, and dynamic correction systems. More specifically, this targeted students taking introductory Python courses.'
         },
         {
             title: 'Art',

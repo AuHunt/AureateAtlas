@@ -17,7 +17,7 @@ const useStyles = makeStyles({
 interface INavigatorProps {
     homeSectionRef: MutableRefObject<HTMLDivElement | null>;
     projectsSectionRef: MutableRefObject<HTMLDivElement | null>;
-    teamSectionRef: MutableRefObject<HTMLDivElement | null>;
+    skillsSectionRef: MutableRefObject<HTMLDivElement | null>;
     contactSectionRef: MutableRefObject<HTMLDivElement | null>;
 }
 
@@ -43,12 +43,12 @@ export default function Navigator(props: INavigatorProps) {
                 setValue(buttonIndex);
                 break;
             }
-            // case 2: {
-            //     scrollToSection(props.teamSectionRef);
-            //     setValue(buttonIndex);
-            //     break;
-            // }
             case 2: {
+                scrollToSection(props.skillsSectionRef);
+                setValue(buttonIndex);
+                break;
+            }
+            case 3: {
                 scrollToSection(props.contactSectionRef);
                 setValue(buttonIndex);
                 break;
@@ -72,7 +72,7 @@ export default function Navigator(props: INavigatorProps) {
             >
                 <BottomNavigationAction label="Home" icon={<RestoreIcon />} />
                 <BottomNavigationAction label="Projects" icon={<FavoriteIcon />} />
-                {/* <BottomNavigationAction label="Team" icon={<LocationOnIcon />} /> */}
+                <BottomNavigationAction label="Skills" icon={<LocationOnIcon />} />
                 <BottomNavigationAction label="Contact" icon={<LocationOnIcon />} />
             </BottomNavigation>
         </Container>
