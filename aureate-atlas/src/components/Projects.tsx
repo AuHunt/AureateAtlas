@@ -87,8 +87,8 @@ export default function ProjectList() {
             const project = listContent[index];
 
             const projectItem = (
-                <div className="Project-list-item-container">
-                    <Card key={`project-item-${index}`} className={`${classes.root} Project-list-item`}>
+                <div key={`project-item-${index}`} className="Project-list-item-container">
+                    <Card className={`${classes.root} Project-list-item`}>
                         <CardActionArea href={project.assets[0]} target="_blank">
                             <CardMedia
                                 className={classes.media}

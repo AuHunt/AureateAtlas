@@ -68,7 +68,7 @@ export default function Skills() {
                         <Typography variant="body2" component="p" className="skill-card-subsection-title">
                             Projects:
                         </Typography>
-                        <Typography variant="body2" component="p">
+                        <Typography variant="body2" component="span">
                             <ul className="skill-card-info-list">
                                 <li>Pong (using Pygame)</li>
                                 <li>Asteroids Recreation</li>
@@ -137,7 +137,7 @@ export default function Skills() {
                         <Typography variant="body2" component="p" className="skill-card-subsection-title">
                             Projects:
                         </Typography>
-                        <Typography variant="body2" component="p">
+                        <Typography variant="body2" component="span">
                             <ul className="skill-card-info-list">
                                 <li>ADP Workforce Now</li>
                                 <li>Online Testing System for Python</li>
@@ -195,7 +195,7 @@ export default function Skills() {
                         <Typography variant="body2" component="p" className="skill-card-subsection-title">
                             Projects:
                         </Typography>
-                        <Typography variant="body2" component="p">
+                        <Typography variant="body2" component="span">
                             <ul className="skill-card-info-list">
                                 <li>3D Printed Recon Drone</li>
                                 <li>Low Power Mesh Network</li>
