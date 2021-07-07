@@ -129,7 +129,7 @@ export default function Skills() {
                             CI/CD:
                         </Typography>
                         <Typography variant="body2" component="p">
-                            MySQL, SQL, PL/SQL, and PostgreSQL
+                            Docker, Jenkins, and Splunk
                         </Typography>
                     </div>
 

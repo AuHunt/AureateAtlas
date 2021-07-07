@@ -1,7 +1,7 @@
 import { Typography } from '@material-ui/core';
 import React from 'react';
 import './assets/styles/Home.scss';
-import TeamImg from './assets/images/Lips.jpg';
+import Me from './assets/images/me.jpg';
 import { FaLinkedin, FaInstagramSquare, FaGithubSquare } from 'react-icons/fa';
 
 export default function Home() {
@@ -19,7 +19,7 @@ export default function Home() {
                 Below you can find some of my programming projects and skills I've developed over the years.
             </Typography>
             <div className="Home-profile-pic-wrapper">
-                <img className="Home-profile-pic" src={TeamImg} alt=""></img>
+                <img className="Home-profile-pic" src={Me} alt=""></img>
             </div>
             <div className="Home-social-links-group">
                 <a

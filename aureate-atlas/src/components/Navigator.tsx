@@ -2,9 +2,10 @@ import React, { MutableRefObject } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import RestoreIcon from '@material-ui/icons/Restore';
+import HomeIcon from '@material-ui/icons/Home';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+import StarIcon from '@material-ui/icons/Star';
+import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import Container from '@material-ui/core/Container';
 import './assets/styles/Navigator.scss';
 
@@ -61,7 +62,7 @@ export default function Navigator(props: INavigatorProps) {
     };
 
     return (
-        <Container maxWidth={false} className="Navigator-content">
+        <Container maxWidth="sm" className="Navigator-content">
             <BottomNavigation
                 value={value}
                 onChange={(event, newValue) => {
@@ -70,10 +71,10 @@ export default function Navigator(props: INavigatorProps) {
                 showLabels
                 className={`${classes.root}`}
             >
-                <BottomNavigationAction label="Home" icon={<RestoreIcon />} />
+                <BottomNavigationAction label="Home" icon={<HomeIcon />} />
                 <BottomNavigationAction label="Projects" icon={<FavoriteIcon />} />
-                <BottomNavigationAction label="Skills" icon={<LocationOnIcon />} />
-                <BottomNavigationAction label="Contact" icon={<LocationOnIcon />} />
+                <BottomNavigationAction label="Skills" icon={<StarIcon />} />
+                <BottomNavigationAction label="Contact" icon={<EmojiPeopleIcon />} />
             </BottomNavigation>
         </Container>
     );
