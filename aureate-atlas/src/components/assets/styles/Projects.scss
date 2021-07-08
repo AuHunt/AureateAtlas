@@ -40,6 +40,12 @@
             position: relative;
             bottom: 65px;
 
+            .nullIcon {
+                .MuiSvgIcon-root {
+                    color: #2d2d2d;
+                }
+            }
+
             .MuiSvgIcon-root {
                 color: white;
 

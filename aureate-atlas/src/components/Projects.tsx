@@ -56,7 +56,7 @@ export default function ProjectList() {
             assets: [SirVeyBot],
             description:
                 'For my junior internship, I worked in a multi-disciplinary team to develop a proof-of-concept drone capable of finding people in disaster zones. The aim was to make it cheap to produce and fast to deploy. I was in charge of developing the control modules, sensor systems, and wireless communication system for the drone and its array of tools.',
-            actions: []
+            actions: [{ name: 'null', link: '' }]
         },
         {
             title: 'Online Testing System',
@@ -70,7 +70,7 @@ export default function ProjectList() {
             assets: [CharlesDiscordBot],
             description:
                 'Lightweight discord bot designed to web scrape sites like Youtube and Reddit quickly. In addition to its intended purpose, some other functionality was added to facilitate server moderation including chat cleanup, role modifiers, and several other tools.',
-            actions: []
+            actions: [{ name: 'null', link: '' }]
         },
         {
             title: 'Old Game Recreations',
@@ -123,6 +123,20 @@ export default function ProjectList() {
                                 return (
                                     <IconButton key={index} aria-label="Twitter" href={action.link} target="_blank">
                                         <TwitterIcon />
+                                    </IconButton>
+                                );
+                            } else if (action.name === 'null') {
+                                return (
+                                    <IconButton
+                                        disableTouchRipple
+                                        aria-disabled
+                                        disableRipple
+                                        disableFocusRipple
+                                        disabled
+                                        key={index}
+                                        className={`nullIcon`}
+                                    >
+                                        <TwitterIcon htmlColor="black" />
                                     </IconButton>
                                 );
                             }
