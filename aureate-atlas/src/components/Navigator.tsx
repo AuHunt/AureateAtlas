@@ -20,11 +20,12 @@ interface INavigatorProps {
     projectsSectionRef: MutableRefObject<HTMLDivElement | null>;
     skillsSectionRef: MutableRefObject<HTMLDivElement | null>;
     contactSectionRef: MutableRefObject<HTMLDivElement | null>;
+    setSection: React.Dispatch<React.SetStateAction<number>>;
+    visibleSection: number;
 }
 
 export default function Navigator(props: INavigatorProps) {
     const classes = useStyles();
-    const [value, setValue] = React.useState(0);
 
     const scrollToSection = (sectionRef: MutableRefObject<HTMLDivElement | null>) => {
         if (sectionRef.current) {
@@ -36,26 +37,25 @@ export default function Navigator(props: INavigatorProps) {
         switch (buttonIndex) {
             case 0: {
                 scrollToSection(props.homeSectionRef);
-                setValue(buttonIndex);
+                props.setSection(buttonIndex);
                 break;
             }
             case 1: {
                 scrollToSection(props.projectsSectionRef);
-                setValue(buttonIndex);
+                props.setSection(buttonIndex);
                 break;
             }
             case 2: {
                 scrollToSection(props.skillsSectionRef);
-                setValue(buttonIndex);
+                props.setSection(buttonIndex);
                 break;
             }
             case 3: {
                 scrollToSection(props.contactSectionRef);
-                setValue(buttonIndex);
+                props.setSection(buttonIndex);
                 break;
             }
             default: {
-                setValue(buttonIndex);
                 break;
             }
         }
@@ -64,7 +64,7 @@ export default function Navigator(props: INavigatorProps) {
     return (
         <Container maxWidth="sm" className="Navigator-content">
             <BottomNavigation
-                value={value}
+                value={props.visibleSection}
                 onChange={(event, newValue) => {
                     navToSection(newValue);
                 }}

@@ -6,6 +6,7 @@ import Navigator from './Navigator';
 import Projects from './Projects';
 import backgroundVideoFallback from './assets/images/BlackPolygon.jpg';
 import Skills from './Skills';
+import ReactVisibilitySensor from 'react-visibility-sensor';
 
 // *** REACT-REDUX STUFF ***
 // import logo from './assets/images/logo.svg';
@@ -21,6 +22,7 @@ import Skills from './Skills';
 
 export default function Portfolio() {
     const [backgroundVideoUrl] = useState('/videos/BlackConstellation.mp4');
+    const [visibleSection, setSection] = React.useState(0);
 
     // const testProps = {
     //     testProp: testState,
@@ -33,8 +35,38 @@ export default function Portfolio() {
         homeSectionRef: useRef<HTMLDivElement>(null),
         projectsSectionRef: useRef<HTMLDivElement>(null),
         skillsSectionRef: useRef<HTMLDivElement>(null),
-        contactSectionRef: useRef<HTMLDivElement>(null)
+        contactSectionRef: useRef<HTMLDivElement>(null),
+        setSection: setSection,
+        visibleSection: visibleSection
     };
+
+    function isHomeVisible(isVisible: boolean) {
+        console.log(0);
+        if (isVisible) {
+            setSection(0);
+        }
+    }
+
+    function isProjectsVisible(isVisible: boolean) {
+        console.log(1);
+        if (isVisible) {
+            setSection(1);
+        }
+    }
+
+    function isSkillsVisible(isVisible: boolean) {
+        console.log(2);
+        if (isVisible) {
+            setSection(2);
+        }
+    }
+
+    function isContactVisible(isVisible: boolean) {
+        console.log(3);
+        if (isVisible) {
+            setSection(3);
+        }
+    }
 
     return (
         <div className="Portfolio">
@@ -42,18 +74,26 @@ export default function Portfolio() {
                 <source src={process.env.PUBLIC_URL + backgroundVideoUrl} type="video/mp4" />
                 <source src={process.env.PUBLIC_URL + backgroundVideoUrl} type="video/ogg" />
             </video>
-            <div className="Portfolio-section-home" ref={navigatorProps.homeSectionRef}>
-                <Home></Home>
-            </div>
-            <div className="Portfolio-section-projects" ref={navigatorProps.projectsSectionRef}>
-                <Projects></Projects>
-            </div>
-            <div className="Portfolio-section-skills" ref={navigatorProps.skillsSectionRef}>
-                <Skills></Skills>
-            </div>
-            <div className="Portfolio-section-contact" ref={navigatorProps.contactSectionRef}>
-                <Contact></Contact>
-            </div>
+            <ReactVisibilitySensor partialVisibility minTopValue={100} onChange={isHomeVisible}>
+                <div className="Portfolio-section-home" ref={navigatorProps.homeSectionRef}>
+                    <Home></Home>
+                </div>
+            </ReactVisibilitySensor>
+            <ReactVisibilitySensor partialVisibility minTopValue={100} onChange={isProjectsVisible}>
+                <div className="Portfolio-section-projects" ref={navigatorProps.projectsSectionRef}>
+                    <Projects></Projects>
+                </div>
+            </ReactVisibilitySensor>
+            <ReactVisibilitySensor partialVisibility minTopValue={100} onChange={isSkillsVisible}>
+                <div className="Portfolio-section-skills" ref={navigatorProps.skillsSectionRef}>
+                    <Skills></Skills>
+                </div>
+            </ReactVisibilitySensor>
+            <ReactVisibilitySensor partialVisibility minTopValue={100} onChange={isContactVisible}>
+                <div className="Portfolio-section-contact" ref={navigatorProps.contactSectionRef}>
+                    <Contact></Contact>
+                </div>
+            </ReactVisibilitySensor>
             <div className="Portfolio-navigator">
                 <Navigator {...navigatorProps}></Navigator>
             </div>
